@@ -50,6 +50,7 @@ public class Message implements Runnable {
         try{
             
             boolean sleep = SLEEP_START<SLEEP_END;
+            int count=5;
             while(true) {
                 
                 int nowHour=new GregorianCalendar().get(Calendar.HOUR);
@@ -66,10 +67,11 @@ public class Message implements Runnable {
         
                 ).execute();
             
-                if(isMessageSent(message)){
+                if(isMessageSent(message) || count==0){
+                    count=6;
                     Thread.sleep(1000*60*60);
                 }
-                
+                count--;
             }
         
         }
