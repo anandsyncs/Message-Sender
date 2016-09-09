@@ -83,10 +83,10 @@ public class Message implements Runnable {
            
      private boolean isMessageSent(com.twilio.rest.api.v2010.account.Message message){
          String status=String.valueOf(message.getStatus());
-         while(!(status.equals("deliverd") || status.equals("failed") || status.equals("undelivered"))){
+         while(!(status.equals("delivered") || status.equals("failed") || status.equals("undelivered"))){
              status=String.valueOf(message.getStatus());
          }
-             if(status.equals("deliverd")){
+             if(status.equals("delivered")){
                  return true;
              }
              else{
